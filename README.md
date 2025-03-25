@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Boiler Room Interview Challenge
 
-## Getting Started
+This challenge is comprised of a Next.js app that you can run locally,
+and a number of tasks for you to complete.
 
-First, run the development server:
+You are expected to have a working knowledge of how to use `git`,
+and can use any NPM package manager of your choice.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+When completing the tasks,
+please commit regularly to show your progress and working.
+When you are finished, please supply your answers in a zip archive,
+but avoid including any files ignored by `.gitignore`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You are not necessarily expected to know and have experience
+with all technologies that you'll be exposed to as part of this exercise,
+so feel free to search and use any tools you would typically use
+during normal development
+(i.e. online documentation, search engines, AI coding assistants, etc...)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Additionally, you are not expected to focus on making things look pretty.
+Beyond small amounts of CSS / styling,
+it's better to focus on the code itself as this is what we'll be assessing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## The project
 
-## Learn More
+You will be working on a web application that allows users to
+upload & manage audio files,
+and play them back in their browser in interesting ways.
 
-To learn more about Next.js, take a look at the following resources:
+In the project's current form,
+a user can open an audio file in the browser,
+and play / pause the audio track.
 
+There is an [example music file](./example.mp3) in this repo,
+but you are free to use whichever audio files you want.
+
+## Tasks
+
+1. Using the Web Audio API,
+   introduce a way for the user to change the playback speed of the audio.
+
+   You should make sure that the existing functionality,
+   play-pause, etc.. continue to work.
+
+   Take a look at the
+   [`AudioBufferSourceNode`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode) docs as a starting point.
+
+2. Using the Web Audio API,
+   introduce a way for the user to add either a high-pass or low-pass filter
+   to the audio. You will want to use a `BiquadFilterNode` for this.
+
+   For an explanation of what high & low pass filters are,
+   see this video on youtube: <https://www.youtube.com/watch?v=oLVzhSw7hcw>
+
+   The user should be able to adjust the intensity,
+   and switch between a high-pass and low-pass filter as the music is playing.
+
+3. Users want to be able to keep their settings between page-loads and visits.
+   Using the storage APIs that we've defined,
+   ensure that when users change their high/low-pass filter options,
+   or playback speed,
+   that the settings for the current user get saved.
+
+4. Having to upload / open files every time you load the page is annoying.
+   Introduce a new `library` page where users can upload files to the app,
+   and rename / delete their files.
+   Use the storage APIs that we've defined 
+   on the server-side to actually store the data.
+
+   (You don't need to connect this to the existing page)
+
+5. Now that a user has a way to manage their library,
+   we can use this in the player.
+   Update the player route so that it includes the ID of a track,
+   and use this to load the specific audio file from the server
+   instead of providing an upload button.
+   Additionally add link in the library page that will allow the user to load
+   each specific track in the player.
+
+## Resources
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [MDN: Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+- [Free PD](https://freepd.com/) - publicly accessible / free music to test with
