@@ -1,6 +1,5 @@
 "use client";
 import { ChangeEventHandler, FC, useCallback } from "react";
-import styles from "./FilePicker.module.css";
 
 type FilePickerProps = {
   onFileSelect: (file: File) => void;
@@ -17,10 +16,5 @@ export const FilePicker: FC<FilePickerProps> = ({ onFileSelect }) => {
     [onFileSelect],
   );
 
-  return (
-    <label className={styles.filePicker}>
-      <input type="file" onChange={onChange} />
-      Choose a file
-    </label>
-  );
+  return <input type="file" onChange={onChange} />;
 };
