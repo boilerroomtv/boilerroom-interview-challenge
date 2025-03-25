@@ -6,7 +6,7 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <div className={styles.ctas}>
-          <Link href={"/player"} className={styles.secondary}>
+          <Link href={"/player"} className={styles.primary}>
             Audio Player
           </Link>
           <Link href={"/library"} className={styles.secondary}>
