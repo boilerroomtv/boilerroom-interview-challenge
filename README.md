@@ -64,7 +64,7 @@ but you are free to use whichever audio files you want.
 4. Having to upload / open files every time you load the page is annoying.
    Introduce a new `library` page where users can upload files to the app,
    and rename / delete their files.
-   Use the storage APIs that we've defined 
+   Use the storage APIs that we've defined
    on the server-side to actually store the data.
 
    (You don't need to connect this to the existing page)
@@ -78,6 +78,7 @@ but you are free to use whichever audio files you want.
    each specific track in the player.
 
 ## Resources
+
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [MDN: Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
