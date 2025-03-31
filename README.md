@@ -47,8 +47,7 @@ store data for your users.
   we're storing in a type-safe way.
 
 When using this API,
-it will store files in the `data/` directory,
-which you can expect during development.
+it will store files in the `data/` directory.
 
 ## Tasks
 
