@@ -7,7 +7,7 @@ You are expected to have a working knowledge of how to use `git`,
 and can use any NPM package manager of your choice.
 
 When completing the tasks,
-please commit regularly to show your progress and working.
+**please commit regularly to show your progress and working**.
 When you are finished, please supply your answers in a zip archive,
 but avoid including any files ignored by `.gitignore`.
 
@@ -17,9 +17,14 @@ so feel free to search and use any tools you would typically use
 during normal development
 (i.e. online documentation, search engines, AI coding assistants, etc...)
 
-Additionally, you are not expected to focus on making things look pretty.
-Beyond small amounts of CSS / styling,
-it's better to focus on the code itself as this is what we'll be assessing.
+As part of this assessment, **you are NOT expected to**:
+
+- Write tests
+- Make things look pretty,
+  beyond small amounts of CSS / styling for layout purposes.
+
+It's better to focus your time on the implementation code itself
+as this is what we'll be assessing.
 
 ## The project
 
