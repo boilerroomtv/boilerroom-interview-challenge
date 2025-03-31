@@ -3,10 +3,11 @@ import { FC, useCallback, useEffect, useState } from "react";
 import { FilePicker } from "./FilePicker";
 import { readFile } from "../util";
 import { AudioContextContext } from "./AudioContextProvider";
+import { PlayerPlayback } from "./PlayerPlayback";
 
 export const Player: FC = () => {
   const [context, setContext] = useState<AudioContext | null>(null);
-  const [_audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
+  const [audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
 
   useEffect(() => {
     const context = new AudioContext();
@@ -34,6 +35,7 @@ export const Player: FC = () => {
   return (
     <AudioContextContext.Provider value={context}>
       <FilePicker onFileSelect={onFileSelect} />
+      <PlayerPlayback context={context} audioBuffer={audioBuffer} />
     </AudioContextContext.Provider>
   );
 };
