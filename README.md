@@ -58,6 +58,9 @@ which you can expect during development.
    You should make sure that the existing functionality,
    play-pause, etc.. continue to work.
 
+   (You will notice that the pitch will also change when you adjust the speed,
+   this is expected, and you do not need to address this as part of this task).
+
    Take a look at the
    [`AudioBufferSourceNode`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode) docs as a starting point.
 
