@@ -35,3 +35,39 @@ export const storeFile = async (
 
   await nodeStream;
 };
+
+export const readFile = async (
+  key: string,
+): Promise<ReadableStream<Uint8Array>> => {
+  const filePath = path.join(FILES_DIR, key);
+
+  // Ensure the file exists
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`File ${key} does not exist`);
+  }
+
+  // Create a ReadableStream from the file
+  const fileStream = fs.createReadStream(filePath);
+
+  return new ReadableStream<Uint8Array>({
+    start(controller) {
+      fileStream.on("data", (chunk) => {
+        if (typeof chunk === "string") {
+          throw new Error("Chunk is a string");
+        }
+        controller.enqueue(new Uint8Array(chunk));
+      });
+
+      fileStream.on("end", () => {
+        controller.close();
+      });
+
+      fileStream.on("error", (err) => {
+        controller.error(err);
+      });
+    },
+    cancel() {
+      fileStream.destroy();
+    },
+  });
+};
