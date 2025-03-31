@@ -53,10 +53,11 @@ but you are free to use whichever audio files you want.
    see this video on youtube: <https://www.youtube.com/watch?v=oLVzhSw7hcw>
 
    The user should be able to adjust the intensity,
-   and switch between a high-pass and low-pass filter as the music is playing.
+   and switch between a high-pass and low-pass filter as the music is playing,
+   without any interruption or stuttering.
 
 3. Users want to be able to keep their settings between page-loads and visits.
-   Using the storage APIs that we've defined,
+   Using the backend storage APIs that we've defined,
    ensure that when users change their high/low-pass filter options,
    or playback speed,
    that the settings for the current user get saved.
