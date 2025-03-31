@@ -46,6 +46,9 @@ store data for your users.
   This module uses [`zod`](https://zod.dev/) to define the types for the data
   we're storing in a type-safe way.
 
+When using this API,
+it will store files in the `data/` directory,
+which you can expect during development.
 
 ## Tasks
 
