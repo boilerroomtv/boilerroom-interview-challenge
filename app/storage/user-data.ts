@@ -57,12 +57,12 @@ export const getDataForCurrentUser = async () => {
 };
 
 export const updateDataForCurrentUser = async (
-  update: (current: UserData) => UserData,
+  update: (current: UserData) => UserData | Promise<UserData>,
 ): Promise<UserData> => {
   const current = await getDataForCurrentUser();
   const userId = await getUserId();
   const filePath = getFilePath(userId);
-  const updated = update(current);
+  const updated = await update(current);
   await mkdir(USER_DATA_DIR, { recursive: true });
   await writeFile(filePath, JSON.stringify(updated, null, 2), "utf-8");
   return updated;

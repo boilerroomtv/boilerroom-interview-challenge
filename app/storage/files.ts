@@ -71,3 +71,15 @@ export const readFile = async (
     },
   });
 };
+
+export const deleteFile = async (key: string) => {
+  const filePath = path.join(FILES_DIR, key);
+
+  // Ensure the file exists
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`File ${key} does not exist`);
+  }
+
+  // Delete the file
+  await fs.promises.unlink(filePath);
+};
