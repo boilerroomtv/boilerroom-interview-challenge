@@ -34,6 +34,19 @@ and play / pause the audio track.
 There is an [example music file](./example.mp3) in this repo,
 but you are free to use whichever audio files you want.
 
+## Storage APIs
+
+We have introduced 2 storage APIs that can be used from the server-side to
+store data for your users.
+
+- [files.ts](./app/storage/files.ts) - module to store byte-streams as
+  files, and read them as readable streams.
+- [user-data.ts](./app/storage/user-data.ts) - module that allows storing data
+  associated with the given user of a request.
+  This module uses [`zod`](https://zod.dev/) to define the types for the data
+  we're storing in a type-safe way.
+
+
 ## Tasks
 
 1. Using the Web Audio API,
@@ -57,15 +70,18 @@ but you are free to use whichever audio files you want.
    without any interruption or stuttering.
 
 3. Users want to be able to keep their settings between page-loads and visits.
-   Using the backend storage APIs that we've defined,
+   Using the backend [storage APIs](#storage-apis) that we've defined,
    ensure that when users change their high/low-pass filter options,
    or playback speed,
    that the settings for the current user get saved.
 
+   When the user reloads the page,
+   it should restore the state of their last saved settings.
+
 4. Having to upload / open files every time you load the page is annoying.
    Introduce a new `library` page where users can upload files to the app,
    and rename / delete their files.
-   Use the storage APIs that we've defined
+   Use the [storage APIs](#storage-apis) that we've defined
    on the server-side to actually store the data.
 
    (You don't need to connect this to the existing page)
